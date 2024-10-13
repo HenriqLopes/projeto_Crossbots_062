@@ -3,42 +3,44 @@
 
 using namespace std;
     
-void verificarSomaMagica (vector<vector<int>>& matriz, int* primeiraSoma, int ordem);
+void solicitarOrdemMatriz (int* ordem);
+void solicitarValoresMatriz (vector<vector<int>>& matriz, int ordem);
+void verificarQuadradoMagico (vector<vector<int>>& matriz, int* primeiraSoma, int ordem);
 void imprimirMatriz (vector<vector<int>>& matriz, int ordem);
+void imprimirResultados (vector<vector<int>>&matriz, int ordem, int primeiraSoma);
 
 int main() {
     int ordem = 0;
     int primeiraSoma = -1;
 
-    do {
-        cout << "Digite a ordem do quadrado magico: ";
-        cin >> ordem;
-    } while (ordem < 2 || ordem > 10);
+    solicitarOrdemMatriz (&ordem);
     
     vector<vector<int>> matriz(ordem, vector<int>(ordem));
 
+    solicitarValoresMatriz (matriz, ordem);
+    verificarQuadradoMagico (matriz, &primeiraSoma, ordem);
+    imprimirResultados (matriz, ordem, primeiraSoma);
+
+    return 0;
+}
+
+void solicitarOrdemMatriz (int* ordem) {
+    do {
+        cout << "Digite a ordem do quadrado magico: ";
+        cin >> *ordem;
+    } while (*ordem < 2 || *ordem > 10);
+}
+
+void solicitarValoresMatriz (vector<vector<int>>& matriz, int ordem){
     cout << "Digite os elementos da matriz:" << endl;
     for (int i = 0; i < ordem; i++) {
         for (int j = 0; j < ordem; j++) {
             cin >> matriz[i][j];
         }
     }
-    
-    verificarSomaMagica(matriz, &primeiraSoma, ordem);
-
-    if(primeiraSoma != -1){
-        imprimirMatriz(matriz, ordem);
-        cout << "A matriz e um quadrado magico e a soma magica e: " << primeiraSoma;
-    }
-    else {
-        cout << "A matriz nao e um quadrado magico." << endl;
-        cout << "Resultado da soma = -1";
-    }
-
-    return 0;
 }
 
-void verificarSomaMagica(vector<vector<int>>& matriz, int* primeiraSoma, int ordem) {
+void verificarQuadradoMagico (vector<vector<int>>& matriz, int* primeiraSoma, int ordem) {
     int somaln, somacl, somaDiagPrin = 0, somaDiagSec = 0;
 
     for(int i = 0; i < ordem; i++){
@@ -69,12 +71,23 @@ void verificarSomaMagica(vector<vector<int>>& matriz, int* primeiraSoma, int ord
     }
 }
 
-void imprimirMatriz(vector<vector<int>>& matriz, int ordem){
+void imprimirMatriz (vector<vector<int>>& matriz, int ordem) {
     cout << "Matriz:" << endl;
     for (int i = 0; i < ordem; i++) {
         for (int j = 0; j < ordem; j++) {
             cout << matriz[i][j] << " ";
         }
         cout << endl;
+    }
+}
+
+void imprimirResultados (vector<vector<int>>&matriz, int ordem, int primeiraSoma){
+    if(primeiraSoma != -1){
+        imprimirMatriz (matriz, ordem);
+        cout << "A matriz e um quadrado magico e a soma magica e: " << primeiraSoma;
+    }
+    else {
+        cout << "A matriz nao e um quadrado magico." << endl;
+        cout << "Resultado da soma = -1";
     }
 }
