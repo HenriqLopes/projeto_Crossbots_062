@@ -8,6 +8,7 @@
     void solicitarOrdemMatriz(int* ordem);
     void solicitarValoresMatriz(vector<vector<int>>& matriz, int ordem);
     void verificarQuadradoMagico(vector<vector<int>>& matriz, int* primeiraSoma, int ordem);
+    void verificarLinhas (vector<vector<int>>&matriz, int& primeiraSoma, int ordem);
     void verificarDiagonais (vector<vector<int>>&matriz, int& primeiraSoma, int ordem);
     void imprimirMatriz(vector<vector<int>>& matriz, int ordem);
     void imprimirResultados(vector<vector<int>>& matriz, int ordem, int primeiraSoma);

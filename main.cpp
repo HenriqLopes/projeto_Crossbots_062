@@ -1,6 +1,3 @@
-/*Se estiver usando o VSCode, colocar no terminal o comando 
-" g++ main.cpp funcoes.cpp -o quadradoMagico.exe ", depois vai na pasta do arquivo e roda o executável.*/
-
 #include <iostream>
 #include "quadrado_magico.h"
 
@@ -19,6 +16,8 @@ int main() {
     imprimirResultados (matriz, ordem, primeiraSoma);
 
     system("pause");
+    
+    
 
     return 0;
 }
