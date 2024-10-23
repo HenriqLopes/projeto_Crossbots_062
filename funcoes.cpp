@@ -18,8 +18,8 @@ void solicitarValoresMatriz (vector<vector<int>>& matriz, int ordem){
 }
 
 void verificarQuadradoMagico (vector<vector<int>>& matriz, int* primeiraSoma, int ordem) {
-    verificarLinhas   (matriz, *primeiraSoma, ordem);
-    verificarDiagonais(matriz, *primeiraSoma, ordem);
+    verificarLinhas (matriz, *primeiraSoma, ordem);
+    verificarDiagonais (matriz, *primeiraSoma, ordem);
 }
 
 void verificarLinhas (vector<vector<int>>&matriz, int& primeiraSoma, int ordem) {
